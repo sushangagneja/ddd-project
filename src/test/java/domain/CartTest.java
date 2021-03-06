@@ -1,6 +1,7 @@
 package domain;
 
 import domain.domain_service.CompetitorBasePricer;
+import domain.domain_service.OrderPlacer;
 import domain.events.ItemRemovedFromCartEvent;
 import org.junit.jupiter.api.Test;
 
@@ -11,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CartTest {
     private final Cart cart = new Cart();
     private final CompetitorBasePricer competitorBasePricer = new CompetitorBasePricer();
+    private final OrderPlacer orderPlacer = new OrderPlacer();
     String iPad_pro = "IPad Pro";
     String  hero_ink_pen = "Hero Ink Pen";
     String gm_cricket_bat = "GM Cricket Bat";
@@ -29,6 +31,8 @@ class CartTest {
         cart.add(someItem);
         cart.add(someOtherItem);
         cart.add(yetAnotherItem);
+
+        orderPlacer.placeOrder(cart);
 
         assertTrue(cart.contains(someItem));
         assertTrue(cart.contains(someOtherItem));

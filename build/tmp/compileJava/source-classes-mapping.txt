@@ -10,7 +10,8 @@ domain/Product.java
  domain.Product
 domain/Item.java
  domain.Item
-domain/domain_service/CompetitorBasePricer.java
- domain.domain_service.CompetitorBasePricer
 domain/Cart.java
  domain.Cart
+domain/domain_service/CompetitorBasePricer.java
+ domain.domain_service.CompetitorBasePricer
+ domain.domain_service.CompetitorBasePricer$1

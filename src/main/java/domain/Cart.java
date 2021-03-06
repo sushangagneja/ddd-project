@@ -11,6 +11,7 @@ import java.util.UUID;
 public class Cart {
     private final List<Item> items;
     private final UUID id;
+    private Boolean isCheckedout;
 
     private List<DomainEvent> domainEvents;
 
@@ -18,6 +19,7 @@ public class Cart {
         this.id = UUID.randomUUID();
         this.items = new ArrayList<>();
         domainEvents = new ArrayList<>();
+        isCheckedout = false;
     }
 
     public void add(Item item) {
@@ -42,5 +44,10 @@ public class Cart {
 
     public List<DomainEvent> getDomainEvents() {
         return domainEvents;
+    }
+
+    public List<Item> checkout() {
+        isCheckedout = true;
+        return items;
     }
 }
