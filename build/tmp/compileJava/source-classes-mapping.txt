@@ -4,9 +4,13 @@ domain/events/ItemRemovedFromCartEvent.java
  domain.events.ItemRemovedFromCartEvent
 domain/events/DomainEvent.java
  domain.events.DomainEvent
+domain/Price.java
+ domain.Price
 domain/Product.java
  domain.Product
 domain/Item.java
  domain.Item
+domain/domain_service/CompetitorBasePricer.java
+ domain.domain_service.CompetitorBasePricer
 domain/Cart.java
  domain.Cart
