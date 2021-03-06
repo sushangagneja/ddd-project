@@ -14,4 +14,12 @@ public class Price {
 	public Price reduceBy(double percentage) {
 		return new Price(currency, amount - amount/100.0 * percentage);
 	}
+
+	public Currency getCurrency() {
+		return currency;
+	}
+
+	public Price add(Price price) {
+		return new Price(currency, this.amount + price.amount);
+	}
 }

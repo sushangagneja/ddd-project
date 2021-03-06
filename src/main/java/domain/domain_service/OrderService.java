@@ -8,8 +8,8 @@ import domain.Product;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrderPlacer {
-	public Order placeOrder(Cart cart) {
+public class OrderService {
+	public static Order placeOrder(Cart cart) {
 		List<Item> items = cart.checkout();
 		List<Product> products = new ArrayList<>();
 

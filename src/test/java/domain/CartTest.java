@@ -1,7 +1,7 @@
 package domain;
 
 import domain.domain_service.CompetitorBasePricer;
-import domain.domain_service.OrderPlacer;
+import domain.domain_service.OrderService;
 import domain.events.ItemRemovedFromCartEvent;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +12,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class CartTest {
     private final Cart cart = new Cart();
     private final CompetitorBasePricer competitorBasePricer = new CompetitorBasePricer();
-    private final OrderPlacer orderPlacer = new OrderPlacer();
     String iPad_pro = "IPad Pro";
     String  hero_ink_pen = "Hero Ink Pen";
     String gm_cricket_bat = "GM Cricket Bat";
@@ -20,9 +19,9 @@ class CartTest {
     @Test
     void shouldAddItemsToCart() {
 
-        final Product someProduct = new Product(iPad_pro, competitorBasePricer.adjustPrice(iPad_pro, new Price(Currency.getInstance("INR"), 10)));
-        final Product someOtherProduct = new Product(hero_ink_pen, competitorBasePricer.adjustPrice(hero_ink_pen, new Price(Currency.getInstance("INR"), 20)));
-        final Product yetAnotherProduct = new Product(gm_cricket_bat, competitorBasePricer.adjustPrice(hero_ink_pen, new Price(Currency.getInstance("INR"), 30)));
+        final Product someProduct = new Product(iPad_pro, competitorBasePricer.adjustPrice(iPad_pro, new Price(Currency.getInstance("INR"), 10)), weight);
+        final Product someOtherProduct = new Product(hero_ink_pen, competitorBasePricer.adjustPrice(hero_ink_pen, new Price(Currency.getInstance("INR"), 20)), weight);
+        final Product yetAnotherProduct = new Product(gm_cricket_bat, competitorBasePricer.adjustPrice(hero_ink_pen, new Price(Currency.getInstance("INR"), 30)), weight);
         final Item someItem = new Item(someProduct, 1);
         final Item someOtherItem = new Item(someOtherProduct, 1);
         final Item yetAnotherItem = new Item(yetAnotherProduct, 1);
@@ -32,7 +31,7 @@ class CartTest {
         cart.add(someOtherItem);
         cart.add(yetAnotherItem);
 
-        orderPlacer.placeOrder(cart);
+        OrderService.placeOrder(cart);
 
         assertTrue(cart.contains(someItem));
         assertTrue(cart.contains(someOtherItem));
@@ -42,8 +41,8 @@ class CartTest {
     @Test
     void shouldRemoveItemFromCart() {
 
-        final Product someProduct = new Product(iPad_pro, competitorBasePricer.adjustPrice(hero_ink_pen, new Price(Currency.getInstance("INR"), 10)));
-        final Product someOtherProduct = new Product(hero_ink_pen, competitorBasePricer.adjustPrice(hero_ink_pen, new Price(Currency.getInstance("INR"), 10)));
+        final Product someProduct = new Product(iPad_pro, competitorBasePricer.adjustPrice(hero_ink_pen, new Price(Currency.getInstance("INR"), 10)), weight);
+        final Product someOtherProduct = new Product(hero_ink_pen, competitorBasePricer.adjustPrice(hero_ink_pen, new Price(Currency.getInstance("INR"), 10)), weight);
         final Item someItem = new Item(someProduct, 1);
         final Item someOtherItem = new Item(someOtherProduct, 1);
         cart.add(someItem);
@@ -57,8 +56,8 @@ class CartTest {
 
     @Test
     void shouldReturnRemovedItemsFromCart() {
-        final Product someProduct = new Product(iPad_pro, competitorBasePricer.adjustPrice(iPad_pro, new Price(Currency.getInstance("INR"), 10)));
-        final Product someOtherProduct = new Product(hero_ink_pen, competitorBasePricer.adjustPrice(hero_ink_pen, new Price(Currency.getInstance("INR"), 10)));
+        final Product someProduct = new Product(iPad_pro, competitorBasePricer.adjustPrice(iPad_pro, new Price(Currency.getInstance("INR"), 10)), weight);
+        final Product someOtherProduct = new Product(hero_ink_pen, competitorBasePricer.adjustPrice(hero_ink_pen, new Price(Currency.getInstance("INR"), 10)), weight);
         final Item someItem = new Item(someProduct, 1);
         final Item someOtherItem = new Item(someOtherProduct, 1);
         cart.add(someItem);
@@ -75,7 +74,7 @@ class CartTest {
 
         Cart secondCart = new Cart();
 
-        final Product someProduct = new Product(iPad_pro, competitorBasePricer.adjustPrice(iPad_pro, new Price(Currency.getInstance("INR"), 10)));
+        final Product someProduct = new Product(iPad_pro, competitorBasePricer.adjustPrice(iPad_pro, new Price(Currency.getInstance("INR"), 10)), weight);
         final Item someItem = new Item(someProduct, 1);
         final Item someOtherItem = new Item(someProduct, 1);
 
