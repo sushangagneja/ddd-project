@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="domain.CartTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-03-05T12:12:48" hostname="Sushans-MacBook-Pro.local" time="0.033">
+<testsuite name="domain.CartTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-03-06T04:58:29" hostname="INljhansis-MacBook-Pro.local" time="0.03">
   <properties/>
-  <testcase name="shouldAddItemsToCart()" classname="domain.CartTest" time="0.026"/>
-  <testcase name="shouldReturnRemovedItemsFromCart()" classname="domain.CartTest" time="0.003"/>
-  <testcase name="shouldRemoveItemFromCart()" classname="domain.CartTest" time="0.002"/>
+  <testcase name="shouldAddItemsToCart()" classname="domain.CartTest" time="0.03"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

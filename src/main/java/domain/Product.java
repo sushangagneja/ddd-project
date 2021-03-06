@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Currency;
+
 public class Product {
     private final String name;
 

@@ -13,7 +13,7 @@ public class Item {
         return product;
     }
 
-    public void incrementQuantity() {
-        quantity++;
+    public Integer getQuantity() {
+        return quantity;
     }
 }

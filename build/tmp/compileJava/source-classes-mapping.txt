@@ -1,3 +1,9 @@
+domain/events/ItemAddedToCartEvent.java
+ domain.events.ItemAddedToCartEvent
+domain/events/ItemRemovedFromCartEvent.java
+ domain.events.ItemRemovedFromCartEvent
+domain/events/DomainEvent.java
+ domain.events.DomainEvent
 domain/Product.java
  domain.Product
 domain/Item.java

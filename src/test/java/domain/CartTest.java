@@ -1,8 +1,7 @@
 package domain;
 
+import domain.events.ItemRemovedFromCartEvent;
 import org.junit.jupiter.api.Test;
-
-import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -53,6 +52,23 @@ class CartTest {
 
         cart.remove(someItem);
 
-        assertEquals(Collections.singletonList(someProduct), cart.getRemovedProducts());
+        assertTrue(cart.getDomainEvents().contains(new ItemRemovedFromCartEvent(someProduct.getName())));
+    }
+
+    @Test
+    void shouldReturnFalseWhenItemsInTwoCartsAreEqual() {
+        Cart firstCart = new Cart();
+
+        Cart secondCart = new Cart();
+
+        final Product someProduct = new Product("IPad Pro");
+        final Item someItem = new Item(someProduct, 1);
+        final Item someOtherItem = new Item(someProduct, 1);
+
+        firstCart.add(someItem);
+
+        secondCart.add(someOtherItem);
+
+        assertNotEquals(firstCart, secondCart);
     }
 }
